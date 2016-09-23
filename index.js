@@ -15,6 +15,11 @@ app.use( session( sessionConfig ) );
 app.use( express.static( `${ __dirname }/public` ) );
 
 //ROUTES
+const userRoutes = require( "./features/login/userRoutes.js" );
+userRoutes( app );
+
+const profileRoutes = require( "./features/profile/profileRoutes.js" );
+profileRoutes( app );
 
 //LISTEN
 app.listen( port, () => console.log( "User Profiles is listening on port: " + port ) );
